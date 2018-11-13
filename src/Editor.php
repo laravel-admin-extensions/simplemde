@@ -61,7 +61,7 @@ class Editor extends Field
 
 var options = {element: $("#{$this->id}")[0]};
 
-Object.assign(options, {$config})
+Object.assign(options, {$config});
 
 var simplemde = new SimpleMDE(options);
 
