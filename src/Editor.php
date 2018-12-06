@@ -57,16 +57,18 @@ class Editor extends Field
 
         $config = json_encode($config);
 
+        $varName = 'simplemde_'.uniqid();
+
         $this->script = <<<EOT
 
 var options = {element: $("#{$this->id}")[0]};
 
 Object.assign(options, {$config});
 
-var simplemde = new SimpleMDE(options);
+var $varName = new SimpleMDE(options);
 
-simplemde.codemirror.on("change", function(){
-	var html = simplemde.value();
+$varName.codemirror.on("change", function(){
+	var html = $varName.value();
     $('input[name=$name]').val(html);
 });
 
